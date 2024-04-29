@@ -15,14 +15,14 @@ function napojenie_na_slsp () {
 header('Content-Type: text/html; charset=utf-8');
 
 //Detaily pripojenia
-$hostname = '{imap.websupport.sk:993/imap/ssl}INBOX'; 
+$hostname = '{imap.websupport.sk:993/imap/ssl}INBOX'; // pridaj adresu servera prichádzajúcej pošty v rátane pričinka (napr. "{imap.websupport.sk:993/imap/ssl}INBOX")
 $username = '.....'; //prihlasovacie meno emailu kam chodia výpisy
 $password = '.....'; //heslo k emailu kam chodia výpisy
 
 //Search parameters
 //See http://uk3.php.net/manual/en/function.imap-search.php for possible keys
 //SINCE date should be in j F Y format, e.g. 9 August 2013
-$searchArray = array('SUBJECT'=>'Výpis Papezske misijne diela - FARNOSŤ - ', 'SINCE'=>date('j F Y',strtotime('4 month ago')));
+$searchArray = array('SUBJECT'=>'Výpis ..... - ', 'SINCE'=>date('j F Y',strtotime('4 month ago')));  //Sem zadajte text predmetu emailu, respektíve výpisu. Väčšinou je to v tvare Výpis ..... Pomocou tohto identifikujete emaily, ktoré má spracúvať
 
 //Save attachement file to 
 $saveToPath = plugin_dir_path( __FILE__ ) . '/dump/'; //change this
