@@ -156,7 +156,7 @@ $order->update_status('completed', 'order_note');  //aktualizovanie statusu obje
 
 
 
-//include ('manualne.php'); funkcia v časti manualne.php slúži na manuálne zadávanie rozbaleného súboru. V prípade, že sa zip nerozbalí spravne
+//include ('manualne2.php'); funkcia v časti manualne.php slúži na manuálne zadávanie rozbaleného súboru. V prípade, že sa zip nerozbalí spravne
 
 
 
