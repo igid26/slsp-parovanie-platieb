@@ -14,7 +14,7 @@ $password = '.....,'; //change this
 //Search parameters
 //See http://uk3.php.net/manual/en/function.imap-search.php for possible keys
 //SINCE date should be in j F Y format, e.g. 9 August 2013
-$searchArray = array('SUBJECT'=>'Výpis Papezske misijne diela - FARNOSŤ - ', 'SINCE'=>date('j F Y',strtotime('4 month ago')));
+$searchArray = array('SUBJECT'=>'.... ', 'SINCE'=>date('j F Y',strtotime('4 month ago')));
 
 //Save attachement file to 
 $saveToPath = plugin_dir_path( __FILE__ ) . '/dump/'; //change this
@@ -43,11 +43,10 @@ if (is_dir($dir)) {
   }
 }
 
-$nazov_suboru = max($fille_array);
+//$nazov_suboru = max($fille_array);
 
-$nazov_suboru = 'SK8809000000005149764503_191.xml';
+$nazov_suboru = 'SK88090000000051598535303_191.xml'; // Sem vložte názov súboru, ktorý ste mauálne nahrali do zložky /filles/
 
-echo $nazov_suboru;
 
 $xml = simplexml_load_file($unzipDest . $nazov_suboru);
 
@@ -99,7 +98,7 @@ $vsetky_objednavky = array();
 $loop = new WP_Query( array(
     'post_type'         => 'shop_order',
     'post_status'       =>  'wc-on-hold',
-    'posts_per_page'    => 10000,
+    'posts_per_page'    => 1000,
     'orderby' => 'date', 
     'order' => 'DESC'
 
@@ -123,22 +122,9 @@ $cislo_kategorie = $term_lists;
 
 
 if (($cislo_kategorie === 169) OR ($cislo_kategorie === 170)) {  
-$vsetky_objednavky[] = '777' . $order_id;
+$vsetky_objednavky[] =  $order_id;
 }
 
-if (($cislo_kategorie === 168)) {
-$vsetky_objednavky[] = '888' . $order_id;
-}
-
-
-if (($cislo_kategorie === 199) OR ($cislo_kategorie === 201)) {
-$vsetky_objednavky[] = '444' . $order_id;
-}
-
-
-if (($cislo_kategorie === 188) OR ($cislo_kategorie === 224) OR ($cislo_kategorie === 324) OR ($cislo_kategorie === 235) ) {
-$vsetky_objednavky[] = '500' . $order_id;
-}
                 
                    
 
@@ -163,22 +149,6 @@ $nove_idcko = substr($results, 3);
 $order = new WC_Order($nove_idcko);
 $order->update_status('completed', 'order_note');
 }
-           
-
-
-
-
-
-           
+          
 
 } 
-
-
-
-
-
-
-
-
-
-?>
