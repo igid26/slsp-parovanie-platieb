@@ -128,40 +128,24 @@ $cislo_kategorie = $term_lists;
 } 
 
 
-
+//podmienka, že chcem párovať len objednávky z danej kategórie (podla term id)
 if (($cislo_kategorie === 169) OR ($cislo_kategorie === 170)) {  
-$vsetky_objednavky[] = '777' . $order_id;
-}
+$vsetky_objednavky[] =  $order_id;
+} 
 
-if (($cislo_kategorie === 168)) {
-$vsetky_objednavky[] = '888' . $order_id;
-}
-
-
-if (($cislo_kategorie === 199) OR ($cislo_kategorie === 201)) {
-$vsetky_objednavky[] = '444' . $order_id;
-}
-
-
-if (($cislo_kategorie === 188) OR ($cislo_kategorie === 224) OR ($cislo_kategorie === 324) OR ($cislo_kategorie === 235) ) {
-$vsetky_objednavky[] = '500' . $order_id;
-}
-                
-                   
-
-                
+               
 endwhile; ?>
 <?php wp_reset_postdata(); else: echo '<p>'.__('Sorry, no posts matched your criteria.').'</p>'; 
 endif; ?>   
 
-<?php $result = array_intersect($vsetky_objednavky,$vyriabilne_simboly);   
+<?php $result = array_intersect($vsetky_objednavky,$vyriabilne_simboly);   //porovnanie hodnôt id objednávok a VS symbolov
 
 //print_r($vyriabilne_simboly);
 
 
 
 foreach($result as $results) {
-echo $results . '<br><br>';  
+echo $results . '<br><br>';  //vypísanie objednávok, ktoré boli nájdené
 $nove_idcko = substr($results, 3);
 $order = new WC_Order($nove_idcko);
 $order->update_status('completed', 'order_note');  //aktualizovanie statusu objednávky na vybavené
@@ -172,10 +156,7 @@ $order->update_status('completed', 'order_note');  //aktualizovanie statusu obje
 
 
 
-include ('manualne.php');
-
-include ('manualne2.php');
-
+//include ('manualne.php'); funkcia v časti manualne.php slúži na manuálne zadávanie rozbaleného súboru. V prípade, že sa zip nerozbalí spravne
 
 
 
