@@ -16,7 +16,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 //Detaily pripojenia
 $hostname = '{imap.websupport.sk:993/imap/ssl}INBOX'; 
-$username = 'objednavky@misijnediela.sk'; //prihlasovacie meno emailu kam chodia výpisy
+$username = '.....'; //prihlasovacie meno emailu kam chodia výpisy
 $password = '.....'; //heslo k emailu kam chodia výpisy
 
 //Search parameters
