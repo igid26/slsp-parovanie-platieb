@@ -1,22 +1,15 @@
 <?php
 
 
-
 function manualne_napojenie_na_slsp_nove () {
-
-
-
-
-
-
 
 
 header('Content-Type: text/html; charset=utf-8');
 
 //Connection Details
 $hostname = '{imap.websupport.sk:993/imap/ssl}INBOX';
-$username = 'objednavky@misijnediela.sk'; //change this
-$password = 'Lazaretska3232,'; //change this
+$username = '....'; //change this
+$password = '.....,'; //change this
 
 //Search parameters
 //See http://uk3.php.net/manual/en/function.imap-search.php for possible keys
